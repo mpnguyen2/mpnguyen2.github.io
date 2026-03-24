@@ -2,47 +2,103 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-    <link rel="stylesheet" href="assets/jemdoc.css" type="text/css" />
-    <title>Experience</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+  <link rel="stylesheet" href="assets/jemdoc.css" type="text/css" />
+  <title>Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    .profile-photo {
+      width: auto;
+      height: auto;
+      max-width: 320px;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (max-width: 700px) {
+
+      table.imgtable,
+      table.imgtable tbody,
+      table.imgtable tr,
+      table.imgtable td {
+        display: block;
+        width: 100%;
+      }
+
+      table.imgtable td:first-child {
+        padding-right: 0;
+        padding-bottom: 12px;
+        text-align: center;
+      }
+
+      .profile-photo {
+        width: min(300px, 82vw);
+        height: auto;
+        max-width: none;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <table summary="Table for page layout." id="tlayout">
-        <tr valign="top">
-            <td id="layout-menu">
-                <div class="menu-category">Minh Nguyen</div>
-                <div class="menu-item"><a href="index.html">Home</a></div>
-                <div class="menu-item"><a href="publications.html">Research</a></div>
-                <div class="menu-item"><a href="experience.html" class="current">Experiences</a></div>
-            </td>
-            <td id="layout-content">
-                <div id="toptitle">
-                    <h1>Experience</h1>
-                </div>
-                <h3>PhD Software Engineer, AI/ML</h3>
-                <p><em>Google · Jul 2025 – Present</em></p>
-                <p>At Google, I work on various machine learning and engineering problems including: time-series logs
-                    for anomaly detection, scheduling optimization, and low-latency hierarchical LLM-based document
-                    classification.</p>
-                <h3>Machine Learning Scientist</h3>
-                <p><em>Microsoft · Jul 2024 – Jul 2025</em></p>
-                <p>I worked on applied and research-oriented language-model systems, including LLM-based knowledge
-                    extraction, synthetic-data approaches for intent classification, unsupervised intent-taxonomy
-                    discovery, and causal forecasting.</p>
-                <h3>Research Assistant</h3>
-                <p><em>Oden Institute, UT Austin · Sep 2021 – May 2024</em></p>
-                <p>I worked on reinforcement learning and stochastic control research, focusing on continuous-time
-                    formulations, Hamiltonian structure, and scientific computing.</p>
-                <h3>Research Assistant</h3>
-                <p><em>Mathematics Department, UT Austin · Aug 2019 – Apr 2021</em></p>
-                <p>I worked on theoretical mathematics including stochastic modeling, diffusion processes, nonlinear
-                    PDEs with a focus on the intersection between probability and functional analysis.</p>
+  <table summary="Table for page layout." id="tlayout">
+    <tr valign="top">
+      <td id="layout-menu">
+        <div class="menu-category">Minh Nguyen</div>
+        <div class="menu-item"><a href="index.html">Home</a></div>
+        <div class="menu-item"><a href="publications.html">Research</a></div>
+        <div class="menu-item"><a href="experience.html" class="current">Experiences</a></div>
+      </td>
+      <td id="layout-content">
+        <div id="toptitle">
+          <h1>Experience</h1>
+        </div>
+        <h3>PhD Software Engineer, AI/ML</h3>
+        <p><em>Google · Jul 2025 – Present</em></p>
+        <p>At Google, I work on various machine learning and engineering problems including: time-series logs for
+          anomaly detection, scheduling optimization, and low-latency hierarchical LLM-based document classification.
+        </p>
+        <h3>Machine Learning Scientist</h3>
+        <p><em>Microsoft · Jul 2024 – Jul 2025</em></p>
+        <p>I worked on applied and research-oriented language-model systems, including LLM-based knowledge extraction,
+          synthetic-data approaches for intent classification, unsupervised intent-taxonomy discovery, and causal
+          forecasting.</p>
+        <h3>Research Assistant</h3>
+        <p><em>Oden Institute, UT Austin · Sep 2021 – May 2024</em></p>
+        <p>I worked on reinforcement learning and stochastic control research, focusing on continuous-time formulations,
+          Hamiltonian structure, and scientific computing.</p>
+        <h3>Research Assistant</h3>
+        <p><em>Mathematics Department, UT Austin · Aug 2019 – Apr 2021</em></p>
+        <p>I worked on theoretical mathematics including stochastic modeling, diffusion processes, nonlinear PDEs with a
+          focus on the intersection between probability and functional analysis.</p>
 
-            </td>
-        </tr>
-    </table>
+      </td>
+    </tr>
+  </table>
+  <script>
+    function resizeProfilePhoto() {
+      const img = document.getElementById('profile-photo');
+      const text = document.getElementById('intro-text');
+      if (!img || !text) return;
+
+      if (window.innerWidth <= 700) {
+        img.style.height = 'auto';
+        img.style.width = 'min(300px, 82vw)';
+        return;
+      }
+
+      const textHeight = text.offsetHeight;
+      const targetHeight = Math.max(300, Math.min(430, Math.round(textHeight * 0.84)));
+
+      img.style.height = targetHeight + 'px';
+      img.style.width = 'auto';
+    }
+
+    window.addEventListener('load', resizeProfilePhoto);
+    window.addEventListener('resize', resizeProfilePhoto);
+  </script>
 </body>
 
 </html>

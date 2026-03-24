@@ -6,6 +6,40 @@
   <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
   <link rel="stylesheet" href="assets/jemdoc.css" type="text/css" />
   <title>Minh Nguyen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    .profile-photo {
+      width: auto;
+      height: auto;
+      max-width: 320px;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (max-width: 700px) {
+
+      table.imgtable,
+      table.imgtable tbody,
+      table.imgtable tr,
+      table.imgtable td {
+        display: block;
+        width: 100%;
+      }
+
+      table.imgtable td:first-child {
+        padding-right: 0;
+        padding-bottom: 12px;
+        text-align: center;
+      }
+
+      .profile-photo {
+        width: min(300px, 82vw);
+        height: auto;
+        max-width: none;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -24,10 +58,9 @@
         <table class="imgtable">
           <tr>
             <td>
-              <img src="assets/profile.jpg" alt="Minh Nguyen" width="260px" height="360px"
-                style="object-fit:cover;" />&nbsp;
+              <img src="assets/profile.jpg" alt="Minh Nguyen" class="profile-photo" id="profile-photo" />&nbsp;
             </td>
-            <td align="left">
+            <td align="left" id="intro-text">
               <p>I am an engineer and researcher working on reinforcement learning, stochastic control theory, and
                 scientific machine learning.</p>
               <p>E-mail: minhpnguyen@utexas.edu</p>
@@ -111,6 +144,28 @@
       </td>
     </tr>
   </table>
+  <script>
+    function resizeProfilePhoto() {
+      const img = document.getElementById('profile-photo');
+      const text = document.getElementById('intro-text');
+      if (!img || !text) return;
+
+      if (window.innerWidth <= 700) {
+        img.style.height = 'auto';
+        img.style.width = 'min(300px, 82vw)';
+        return;
+      }
+
+      const textHeight = text.offsetHeight;
+      const targetHeight = Math.max(300, Math.min(430, Math.round(textHeight * 0.84)));
+
+      img.style.height = targetHeight + 'px';
+      img.style.width = 'auto';
+    }
+
+    window.addEventListener('load', resizeProfilePhoto);
+    window.addEventListener('resize', resizeProfilePhoto);
+  </script>
 </body>
 
 </html>
